@@ -1,25 +1,36 @@
 package com.yyang.learning.ita.chapter1;
 
-import org.junit.Test;
-
 import com.yyang.learning.ita.util.GenerationUtil;
 import com.yyang.learning.ita.util.LogUtil;
 import com.yyang.learning.ita.util.Timer;
 
-public class SortTest {
+public abstract class SortTest {
 	
-	public static final int ARRAY_SIZE = 10000;
+	public static final int ARRAY_SIZE = 5000000;
 	
-	@Test
-	public void testInsertionSort() {
-		Sort sort = new InsertionSort();
-		long[] inputArray = GenerationUtil.inputArray(ARRAY_SIZE);
+	protected void testSort(Sort sort) {
+		long[] inputArr = GenerationUtil.inputArray(getArraySize());
+		Timer timer = sort(sort, inputArr);
+		LogUtil.logRunTime(timer);
+	}
+	
+	protected void testSortWithLog(Sort sort) {
+		long[] inputArr = GenerationUtil.inputArray(getArraySize());
+		LogUtil.logArray(inputArr);
+		Timer timer = sort(sort, inputArr);
+		LogUtil.logArray(inputArr);
+		LogUtil.logRunTime(timer);
+	}
+	
+	
+	protected Timer sort(Sort sort, long[] inputArr) {
 		Timer timer = new Timer();
 		timer.begin();
-		long[] sortedArray = sort.sort(inputArray);
+		sort.sort(inputArr);
 		timer.stop();
-		LogUtil.logRunTime(timer);
-		LogUtil.logArray(sortedArray);
+		return timer;
 	}
+	
+	abstract public int getArraySize() ;
 
 }

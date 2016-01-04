@@ -21,7 +21,6 @@ public class GenerationUtil {
 			intArr[i] = RandomUtils.nextLong(beginNumber, endNumber);
 			
 		}
-		LogUtil.logArray(intArr);
 		return intArr;
 		
 	}

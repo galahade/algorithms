@@ -1,7 +1,6 @@
 package com.yyang.learning.ita.chapter1;
 
-public class InsertionSort implements Sort {
-
+public class InsertionSortV1 implements Sort {
 
 	@Override
 	public long[] sort(long[] array) {
@@ -11,12 +10,15 @@ public class InsertionSort implements Sort {
 			int j = i - 1;
 			while(j > -1 && array[j] > key) {
 				array[j+1] = array[j];
+				array[j] = key;
 				j--;
 			}
-			array[j+1] = key;
 		}
 		
 		return array;
 		
 	}
+	
+	
+
 }

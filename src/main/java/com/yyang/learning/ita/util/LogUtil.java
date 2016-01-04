@@ -18,7 +18,7 @@ public class LogUtil {
 	
 	public static void logRunTime(Timer timer) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("This Timer begin at : %d. End at %d/n Total run : %d Millis/n Total run : %d S", timer.getBegin(), timer.getEnd(), timer.runMilliSeconds(), timer.runSeconds()));
+		sb.append(String.format("This Timer begin at : %d. End at %d\n Total run : %d Millis\n Total run : %d S", timer.getBegin(), timer.getEnd(), timer.runMilliSeconds(), timer.runSeconds()));
 		LOGGER.info(sb.toString());
 	}
 	
